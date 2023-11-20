@@ -17,8 +17,11 @@ dependencies {
     testImplementation platform('org.junit:junit-bom:5.9.2')
     testImplementation 'org.junit.jupiter:junit-jupiter:5.9.2'
     // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
-    implementation 'org.apache.commons:commons-lang3:3.12.0'
+//    implementation 'org.apache.commons:commons-lang3:3.12.0'
     implementation 'info.picocli:picocli:4.7.5'
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.16.0'
+
 }
 
 test {
