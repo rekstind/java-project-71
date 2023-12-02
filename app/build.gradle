@@ -1,5 +1,6 @@
 plugins {
     id 'application'
+    id 'checkstyle'
 }
 
 group = 'hexlet.code'
@@ -30,4 +31,8 @@ test {
 
 application {
     mainClass = 'hexlet.code.App'
+}
+
+checkstyle {
+    toolVersion = '10.3.3'
 }

@@ -5,7 +5,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class Differ {
     public static String generate(String filepath1, String filepath2, String format) throws IOException {
@@ -24,11 +27,14 @@ public class Differ {
         list.stream()
                 .sorted()
                 .forEachOrdered(key -> getDiffOnKey(result, key, map1, map2));
-        return "{\n " +result.toString().replaceAll("=", ": ").replaceAll(",", ",\n").substring(1).replaceAll("}", "\n}");
+        return "{\n " + result.toString().replaceAll("=", ": ")
+                .replaceAll(",", ",\n")
+                .substring(1).replaceAll("}", "\n}");
 
     }
 
-    static void getDiffOnKey(Map<String, Object> result, String key, Map<String, Object> map1, Map<String, Object> map2) {
+    static void getDiffOnKey(Map<String, Object> result, String key, Map<String, Object> map1,
+                             Map<String, Object> map2) {
         if (!map1.containsKey(key)) {
             result.put(" + " + key, map2.get(key));
             return;
