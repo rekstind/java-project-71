@@ -5,7 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class DifferTest {
     @Test
-    public void differStylish() throws Exception {
+    public void differJSON() throws Exception {
         String filepath1 = "src/test/resources/file1.json";
         String filepath2 = "src/test/resources/file2.json";
         String format = "stylish";
@@ -23,9 +23,9 @@ public class DifferTest {
     }
 
     @Test
-    public void differDefault() throws Exception {
-        String filepath1 = "src/test/resources/file1.json";
-        String filepath2 = "src/test/resources/file2.json";
+    public void differYML() throws Exception {
+        String filepath1 = "src/test/resources/file1.yml";
+        String filepath2 = "src/test/resources/file2.yml";
         String format = "stylish";
 
         String expected = "{\n"

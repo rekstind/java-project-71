@@ -1,12 +1,9 @@
 package hexlet.code;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -15,9 +12,8 @@ public class Differ {
         String string1 = Files.readString(Paths.get(filepath1).toAbsolutePath().normalize());
         String string2 = Files.readString(Paths.get(filepath2).toAbsolutePath().normalize());
 
-        ObjectMapper objectMapper = new ObjectMapper();
-        Map<String, Object> map1 = objectMapper.readValue(string1, HashMap.class);
-        Map<String, Object> map2 = objectMapper.readValue(string2, HashMap.class);
+        Map<String, Object> map1 = Parser.parse(string1, filepath1.split("\\.")[1]);
+        Map<String, Object> map2 = Parser.parse(string2, filepath2.split("\\.")[1]);
 
         ArrayList<String> list = new ArrayList<>();
         list.addAll(map1.keySet());
