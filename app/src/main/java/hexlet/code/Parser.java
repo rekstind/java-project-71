@@ -8,9 +8,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Parser {
-    public static Map<String, Object> parse(String data, String dataFormat) throws JsonProcessingException {
+    public static Map<String, Object> parse(String data, String dataExtention) throws JsonProcessingException {
         ObjectMapper objectMapper;
-        if (dataFormat.equals("yml")) {
+        if (dataExtention.equals("yml")) {
             objectMapper = new ObjectMapper(new YAMLFactory());
         } else {
             objectMapper = new ObjectMapper();
